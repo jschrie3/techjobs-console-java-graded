@@ -99,7 +99,22 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+// convert row to string in order to search input value
+            String aValue = row.toString();
+// if row contains search value, add the job entry to output
+            if (aValue.contains(value)) {
+                // if the results already contains the job, don't add it again
+                if (!jobs.contains(row)) {
+                    jobs.add(row);
+
+                // TODO still duplicating values, maybe we need to get the entry set for these  rows and compare entry set to entry seet
+                }
+            }
+        }
+        return jobs;
     }
 
     /**

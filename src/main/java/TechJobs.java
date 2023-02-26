@@ -10,7 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -112,14 +112,47 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
+//    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        // if there are no job entries, print no results
+//        if (someJobs.size() == 0) {
+//            System.out.printf("No Results");
+//        } else {
+//            // iterate over jobs in someJobs
+//            for (HashMap<String, String> job : someJobs) {
+//                System.out.println("\n*****");
+//                // for each key (column) in jobs, get key-value pairs
+//                for (Map.Entry<String, String> column : job.entrySet()) {
+//                    System.out.println(column.getKey() + ": " + column.getValue());
+//                }
+//                System.out.println("*****");
+//            }
+//        }
+//    }
+
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        // iterate over jobs in someJobs
+        for (HashMap<String, String> job : someJobs) {
+            System.out.println("\n*****");
+            // for each key (column) in jobs, get key-value pairs
+            for (Map.Entry<String, String> key : job.entrySet()) {
+                System.out.println(key.getKey() + ": " + key.getValue());
+            }
+            System.out.println("*****");
+        }
+
+        // if there are no job entries, print no results
+        if (someJobs.isEmpty()) {
+            System.out.printf("No Results");
+        }
+
+
     }
 }
+
